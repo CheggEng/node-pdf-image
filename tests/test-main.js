@@ -79,6 +79,7 @@ describe("PDFImage", function () {
           resolve();
         })
         .catch(function (err) {
+          console.log(err.message)
           reject(err);
         });
     });
@@ -95,6 +96,7 @@ describe("PDFImage", function () {
           resolve();
         })
         .catch(function (err) {
+          console.log(err.message);
           reject(err);
         });
     });
@@ -112,6 +114,7 @@ describe("PDFImage", function () {
           resolve();
         })
         .catch(function (err) {
+          console.log(err.message);
           reject(err);
         });
     });
@@ -129,6 +132,7 @@ describe("PDFImage", function () {
           resolve();
         })
         .catch(function (err) {
+          console.log(err.message);
           reject(err);
         });
     });
@@ -149,6 +153,7 @@ describe("PDFImage", function () {
           resolve();
         })
         .catch(function (error) {
+          console.log(err.message);
           reject(error);
         });
     });
@@ -163,6 +168,7 @@ describe("PDFImage", function () {
           resolve();
         })
         .catch(function (err) {
+          console.log(err.message);
           reject(err);
         });
     });
