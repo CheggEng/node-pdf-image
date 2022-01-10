@@ -1,7 +1,7 @@
 let expect = require("chai").expect;
 let fs     = require("fs");
 
-let PDFImage = require("../").PDFImage;
+let PDFImage = require("..").PDFImage;
 
 describe("PDFImage", function () {
   let pdfPath = "/tmp/test.pdf";
@@ -25,6 +25,8 @@ describe("PDFImage", function () {
   });
 
   it("should have correct basename", function () {
+    console.log(pdfImage);
+     console.log(pdfImage.pdfFileBaseName);
     expect(pdfImage.pdfFileBaseName).equal("test");
   });
   
@@ -63,8 +65,8 @@ describe("PDFImage", function () {
   // TODO: Do page updating test
   it("should convert PDF's page to a file with the default extension", function () {
     return new Promise(function(resolve, reject) {
-      pdfImage.convertPage(1).then(function (imagePath) {
-        expect(imagePath).equal("/tmp/test-1.png");
+      pdfImage.convertPage(0).then(function (imagePath) {
+        expect(imagePath).equal("/tmp/test-0.png");
         expect(fs.existsSync(imagePath)).to.be.true;
         generatedFiles.push(imagePath);
         resolve();
@@ -74,10 +76,10 @@ describe("PDFImage", function () {
     });
   });
 
-  it("should convert PDF's page 10 to a file with the default extension", function () {
+  it("should convert PDF's page 5 to a file with the default extension", function () {
     return new Promise(function(resolve, reject){
-      pdfImage.convertPage(9).then(function (imagePath) {
-        expect(imagePath).equal("/tmp/test-9.png");
+      pdfImage.convertPage(4).then(function (imagePath) {
+        expect(imagePath).equal("/tmp/test-4.png");
         expect(fs.existsSync(imagePath)).to.be.true;
         generatedFiles.push(imagePath);
         resolve();
@@ -135,7 +137,7 @@ describe("PDFImage", function () {
   it("should return # of pages", function () {
     return new Promise(function(resolve, reject) {
       pdfImage.numberOfPages().then(function (numberOfPages) {
-        expect(parseInt(numberOfPages)).to.be.equal(10);
+        expect(parseInt(numberOfPages)).to.be.equal(5);
         resolve();
       }).catch(function(err){
         reject(err);
