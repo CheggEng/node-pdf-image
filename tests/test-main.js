@@ -7,7 +7,7 @@ describe("PDFImage", function () {
   let pdfPath = "/tmp/test.pdf";
   let pdfImage;
   let generatedFiles = [];
-  this.timeout(14000);
+  this.timeout(7000);
 
   before(function (done) {
     fs.createReadStream("tests/test.pdf").pipe(fs.createWriteStream(pdfPath));
