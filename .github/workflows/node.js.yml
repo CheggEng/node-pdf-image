@@ -26,6 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: sudo apt-get install imagemagick ghostscript poppler-utils    
+    - run: sudo apt-get install imagemagick ghostscript poppler-utils
+    - run: ls
+    - run: cd ./etc
+    - run: ls
+    - run: cd ./ImageMagick-7
+    - run: ls
     - run: npm ci
     - run: npm test
