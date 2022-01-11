@@ -16,10 +16,24 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - name: Build the Docker image and run tests
       uses: actions/checkout@v2
     - run: docker build --build-arg env=local -t pdfimage .
+
+  testNode12:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - name: Build the Docker image and run tests
+      uses: actions/checkout@v2
+    - run: docker build --build-arg env=local -t pdfimage -f Dockerfile12 .
