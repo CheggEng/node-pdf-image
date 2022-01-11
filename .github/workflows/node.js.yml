@@ -33,4 +33,4 @@ jobs:
     - run: cd ./ImageMagick-7
     - run: ls
     - run: npm ci
-    - run: npm test
+    - run: sudo npm test

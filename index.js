@@ -169,6 +169,7 @@ PDFImage.prototype = {
       function convertPageToImage() {
         exec(convertCommand, function (err, stdout, stderr) {
           if (err) {
+            console.log(err.message);
             return reject({
               message: "Failed to convert page to image",
               error: err,
