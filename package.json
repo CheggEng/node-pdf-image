@@ -20,5 +20,16 @@
   "devDependencies": {
     "chai": "^4.3.4",
     "mocha": "^9.1.3"
-  }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "/tests/*",
+    "index.js",
+    "package.json",
+    "package-lock.json",
+    "README.md",
+    "LICENSE"
+  ]
 }
