@@ -1,11 +1,8 @@
 // node-pdf
-
-var Promise = require("es6-promise").Promise;
-
-var path = require("path");
-var fs   = require("fs");
-var util = require("util");
-var exec = require("child_process").exec;
+const path = require("path");
+const fs = require("fs");
+const util = require("util");
+const exec = require("child_process").exec;
 
 function PDFImage(pdfFilePath, options) {
   if (!options) options = {};
