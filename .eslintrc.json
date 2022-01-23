@@ -1,0 +1,15 @@
+{
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "browser": false,
+        "es6": true,
+        "node": true,
+        "mocha": true
+    },
+    "extends": ["airbnb", "airbnb/hooks"],
+    "parserOptions": {
+        "ecmaVersion": 13
+    },
+    "ignorePatterns": ["tests/"]
+}

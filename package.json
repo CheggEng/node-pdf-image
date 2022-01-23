@@ -12,11 +12,18 @@
   "homepage": "https://github.com/CheggEng/node-pdf-image#readme",
   "dependencies": {},
   "scripts": {
-    "test": "mocha tests/test-main.js"
+    "test": "mocha tests/test-main.js",
+    "lint": "eslint -c .eslintrc.json --ext .js index.js --fix"
   },
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.3.4",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "mocha": "^9.1.4"
   },
   "publishConfig": {
