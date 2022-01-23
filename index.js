@@ -1,3 +1,4 @@
+/* eslint-disable prefer-promise-reject-errors */
 // node-pdf
 const path = require('path');
 const fs = require('fs');
@@ -125,12 +126,13 @@ PDFImage.prototype = {
     const pdfImage = this;
     return new Promise((resolve, reject) => {
       pdfImage.numberOfPages().then((totalPages) => {
+        // eslint-disable-next-line no-shadow
         const convertPromise = new Promise((resolve, reject) => {
           const imagePaths = [];
-          for (let i = 0; i < totalPages; i++) {
+          for (let i = 0; i < totalPages; i += 1) {
             pdfImage.convertPage(i).then((imagePath) => {
               imagePaths.push(imagePath);
-              if (imagePaths.length === parseInt(totalPages)) {
+              if (imagePaths.length === parseInt(totalPages, 10)) {
                 imagePaths.sort(); // because of asyc pages we have to reSort pages
                 resolve(imagePaths);
               }
@@ -189,26 +191,28 @@ PDFImage.prototype = {
         if (imageNotExists) {
           // (1)
           convertPageToImage();
-          return;
+          return null;
         }
 
         // image exist. check timestamp.
-        fs.stat(pdfFilePath, (err, pdfFileStat) => {
+        fs.stat(pdfFilePath, (error, pdfFileStat) => {
           if (err) {
             return reject({
               message: 'Failed to stat PDF file',
-              error: err,
+              error,
             });
           }
 
           if (imageFileStat.mtime < pdfFileStat.mtime) {
             // (2)
             convertPageToImage();
-            return;
+            return null;
           }
 
           return resolve(outputImagePath);
         });
+
+        return null;
       });
     });
     return promise;
