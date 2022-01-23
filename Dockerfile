@@ -1,4 +1,4 @@
-FROM node:14.16.1-alpine
+FROM node:14.18.2-alpine
 RUN apk update && apk add imagemagick ghostscript poppler-utils
 WORKDIR /app
 COPY . .
