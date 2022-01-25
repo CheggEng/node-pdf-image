@@ -97,7 +97,7 @@ PDFImage.prototype = {
     );
   },
   constructConvertOptions() {
-    return Object.keys(this.convertOptions).sort().map(function (optionName) {
+    return Object.keys(this.convertOptions).sort().map((optionName) => {
       if (this.convertOptions[optionName] !== null) {
         return `${optionName} ${this.convertOptions[optionName]}`;
       }
