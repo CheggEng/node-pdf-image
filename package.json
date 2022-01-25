@@ -1,6 +1,6 @@
 {
   "name": "@cheggeng/pdf-image",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -11,9 +11,11 @@
   },
   "homepage": "https://github.com/CheggEng/node-pdf-image#readme",
   "dependencies": {},
+  "types": "./index.d.ts",
   "scripts": {
     "test": "mocha tests/test-main.js",
-    "lint": "eslint -c .eslintrc.json --ext .js index.js --fix"
+    "lint": "eslint -c .eslintrc.json --ext .js index.js --fix",
+    "tsd": "tsd"
   },
   "license": "MIT",
   "devDependencies": {
@@ -24,12 +26,19 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "mocha": "^9.1.4"
+    "mocha": "^9.1.4",
+    "tsd": "^0.14.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "tsd": {
+    "compilerOptions": {
+      "esModuleInterop": true
+    }
+  },
   "files": [
+    "index.d.ts",
     "/tests/*",
     "index.js",
     "package.json",
